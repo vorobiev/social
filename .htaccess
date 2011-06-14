@@ -1,0 +1,23 @@
+Options +FollowSymLinks
+
+IndexIgnore */*
+
+RewriteEngine on
+
+
+
+# if a directory or a file exists, use it directly
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+
+RewriteCond %{REQUEST_FILENAME} -d
+
+
+
+# otherwise forward it to index.php 
+
+RewriteRule ^.*$ - [NC,L]
+
+RewriteRule ^.*$ index.php [NC,L]
